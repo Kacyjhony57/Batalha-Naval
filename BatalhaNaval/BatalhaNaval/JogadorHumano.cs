@@ -51,36 +51,56 @@ namespace BatalhaNaval
             }
             return nickname;
         }
-        public Posicao[] EscolherAtaque()
+        
+       public Posicao[] EscolherAtaque()
         {
-          
+
             int linha;
             int coluna;
-            int x;
+            bool valida = false;
 
-            Console.WriteLine("Informe a linha do tiro: ");
+            Console.Write("Informe a linha do tiro: ");
             linha = int.Parse(Console.ReadLine());
-            Console.WriteLine("Informe a coluna do tiro: ");
+            Console.Write("Informe a coluna do tiro: ");
             coluna = int.Parse(Console.ReadLine());
             Posicao tiro = new Posicao(linha, coluna);
-
-            for (int i = 0; i < posTirosDados.Length && (posTirosDados[i] != null || linha > 9 || linha < 0 || coluna > 9 || coluna < 0); i++)
+            int i;
+            /// se dentro do tabuleiro
+            while (linha > 9 || linha < 0 || coluna > 9 || coluna < 0)
             {
+                Console.WriteLine("Posição fora do tabuleiro! Informe novamente as posições!");
+                Console.Write("Informe a linha do tiro: ");
+                linha = int.Parse(Console.ReadLine());
+                Console.Write("Informe a coluna do tiro: ");
+                coluna = int.Parse(Console.ReadLine());
 
+            }
+
+            // se tiro valido
+            for (i = 0; i < posTirosDados.Length && (valida == false); i++)
+            {
+                //se atirou aqui
+                if (posTirosDados[i].Linha == linha && posTirosDados[i].Coluna == coluna)
+                    valida = false;
+                else
+                    valida = true;
+
+                if (valida = true && (posTirosDados[i] == null)
+                {
+                    posTirosDados[i] = tiro;
+                    return posTirosDados;
+                }
+                else
+                    valida = false;
+
+                Console.WriteLine("Posição de tiro ja utilizda!")
                 Console.WriteLine("Informe a linha do tiro: ");
                 linha = int.Parse(Console.ReadLine());
                 Console.WriteLine("Informe a coluna do tiro: ");
                 coluna = int.Parse(Console.ReadLine());
-                out x = i;
-
             }
-
-            posTirosDados[x] = tiro;
-            
-
             return posTirosDados;
         }
-
 
 
         ////-----PROPRIEDADES--
