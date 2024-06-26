@@ -13,7 +13,7 @@ namespace BatalhaNaval
         private int numTirosDados;
         private Posicao[] posTirosDados;
         private string nickname;
-
+        private int valor;
 
         ////------METODO CONSTRUTOR-----
         public JogadorHumano(int linhas, int colunas, string nome)
