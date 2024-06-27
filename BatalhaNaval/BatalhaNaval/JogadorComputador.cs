@@ -35,13 +35,14 @@ namespace BatalhaNaval
 
         public Posicao[] EscolherAtaque()
         {
+            Posicao[] qualquercoisa = new Posicao[10];
             bool valida = false;
             Random ataque = new Random();
             int linha = ataque.Next(10);
             int coluna = ataque.Next(10);
 
 
-            return;
+            return qualquercoisa ;
         }
 
         public bool ReceberAtaque(Posicao tiro)
