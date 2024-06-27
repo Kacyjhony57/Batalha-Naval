@@ -10,7 +10,8 @@ namespace BatalhaNaval
     {
         static void Main(string[] args)
         {
-
+            JogadorHumano h = new JogadorHumano(10, 10, "Kelvin Lemos");
+            JogadorComputador c = new JogadorComputador(10,10);
         }
     }
 }
