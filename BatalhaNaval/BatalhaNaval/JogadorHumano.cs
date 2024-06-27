@@ -85,7 +85,7 @@ namespace BatalhaNaval
                 else
                     valida = true;
 
-                if (valida = true && (posTirosDados[i] == null)
+                if (valida = true && (posTirosDados[i] == null))
                 {
                     posTirosDados[i] = tiro;
                     return posTirosDados;
@@ -93,7 +93,7 @@ namespace BatalhaNaval
                 else
                     valida = false;
 
-                Console.WriteLine("Posição de tiro ja utilizda!")
+                Console.WriteLine("Posição de tiro ja utilizda!");
                 Console.WriteLine("Informe a linha do tiro: ");
                 linha = int.Parse(Console.ReadLine());
                 Console.WriteLine("Informe a coluna do tiro: ");
