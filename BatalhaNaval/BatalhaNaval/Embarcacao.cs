@@ -17,15 +17,25 @@ namespace BatalhaNaval
             this.tamanho = tamanho;
         }
 
-        
-        public string Nome(){
-            get { return nome;}
+       
+
+        public string Nome
+        {
+            get { return nome; }
             set { nome = value; }
         }
-        public int tamanho(){
-            get { return tamanho;}
+
+       
+
+        public int Tamanho
+        {
+            get { return tamanho; }
             set { tamanho = value; }
         }
+
+
+
+
 
     }
 }
