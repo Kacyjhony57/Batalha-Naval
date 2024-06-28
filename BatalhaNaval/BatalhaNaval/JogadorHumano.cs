@@ -154,6 +154,22 @@ namespace BatalhaNaval
             return true;
         }
 
+        
+        public bool ReceberAtaque(Posicao tiro)
+        {
+            
+            if (tabuleiro[tiro.Linha, tiro.Coluna] != 'A')
+            {
+                tabuleiro[tiro.Linha, tiro.Coluna] = 'T'; 
+                return true;
+            }
+            else
+            {
+                tabuleiro[tiro.Linha, tiro.Coluna] = 'X'; 
+                return false;
+            }
+        }
+
 
         ////-----PROPRIEDADES--
         public int Pontuacao
