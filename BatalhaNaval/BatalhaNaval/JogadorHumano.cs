@@ -101,6 +101,58 @@ namespace BatalhaNaval
             }
             return posTirosDados;
         }
+        public void ImprimirTabuleiroJogador()
+        {
+            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            {
+                for (int j = 0; i < tabuleiro.GetLength(1); j++)
+                {
+                    Console.WriteLine(tabuleiro[i, j] + " ");
+                }
+            }
+        }
+
+        public void ImprimirTabuleiroAdversario()
+        {
+            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            {
+                for (int j = 0; j < tabuleiro.GetLength(1); j++)
+                {
+                    if (tabuleiro[i, j] == 'X' || tabuleiro[i, j] == 'O')
+                    {
+                        Console.Write(tabuleiro[i, j] + " ");
+                    }
+                    else
+                    {
+                        Console.Write('A' + " ");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public bool AdicionarEmbarcacao(Embarcacao embarcacao, Posicao posicao)
+        {
+            if (posicao.Coluna + embarcacao.Tamanho > tabuleiro.GetLength(1))
+            {
+                return false;
+            }
+
+            for (int i = 0; i < embarcacao.Tamanho; i++)
+            {
+                if (tabuleiro[posicao.Linha, posicao.Coluna + i] != 'A')
+                {
+                    return false;
+                }
+            }
+            char simbolo = embarcacao.Nome[0];
+            for (int i = 0; i < embarcacao.Tamanho; i++)
+            {
+                tabuleiro[posicao.Linha, posicao.Coluna + i] = simbolo;
+            }
+
+            return true;
+        }
 
 
         ////-----PROPRIEDADES--
