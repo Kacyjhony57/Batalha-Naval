@@ -69,7 +69,7 @@ namespace BatalhaNaval
             {
                 for (int j = 0; j < tabuleiro.GetLength(1); j++)
                 {
-                    if (tabuleiro[i, j] == 'X' || tabuleiro[i, j] == 'O')
+                    if (tabuleiro[i, j] == 'X' || tabuleiro[i, j] == 'T')
                     {
                         Console.Write(tabuleiro[i, j] + " ");
                     }
