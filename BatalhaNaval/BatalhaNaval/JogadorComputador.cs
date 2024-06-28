@@ -66,8 +66,9 @@ namespace BatalhaNaval
             {
                 for (int j = 0; i < tabuleiro.GetLength(1); j++)
                 {
-                    Console.WriteLine(tabuleiro[i, j] + " ");
+                    Console.Write(tabuleiro[i, j] + " ");
                 }
+                Console.WriteLine();
             }
         }
 
