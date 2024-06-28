@@ -101,16 +101,20 @@ namespace BatalhaNaval
             }
             return posTirosDados;
         }
+
+        
         public void ImprimirTabuleiroJogador()
         {
             for (int i = 0; i < tabuleiro.GetLength(0); i++)
             {
                 for (int j = 0; i < tabuleiro.GetLength(1); j++)
                 {
-                    Console.WriteLine(tabuleiro[i, j] + " ");
+                    Console.Write(tabuleiro[i, j] + " ");
                 }
+                Console.WriteLine();
             }
         }
+        
 
         public void ImprimirTabuleiroAdversario()
         {
@@ -157,7 +161,6 @@ namespace BatalhaNaval
         
         public bool ReceberAtaque(Posicao tiro)
         {
-            
             if (tabuleiro[tiro.Linha, tiro.Coluna] != 'A')
             {
                 tabuleiro[tiro.Linha, tiro.Coluna] = 'T'; 
