@@ -47,9 +47,23 @@ namespace BatalhaNaval
 
         public bool ReceberAtaque(Posicao tiro)
         {
-            bool acertou = true;
-
-            return acertou;
+            if (tabuleiro[tiro.Linha, tiro.Coluna] == 'X' || tabuleiro[tiro.Linha, tiro.Coluna] == 'T')
+            {
+                Console.WriteLine("Essa posição já foi atacada. Escolha outra.");
+                return false;
+            }
+        
+            
+            if (tabuleiro[tiro.Linha, tiro.Coluna] != 'A')
+            {
+                tabuleiro[tiro.Linha, tiro.Coluna] = 'X'; 
+                return true;
+            }
+            else
+            {
+                tabuleiro[tiro.Linha, tiro.Coluna] = 'T'; 
+                return false;
+            }
         }
 
         public void ImprimirTabuleiroJogador()
