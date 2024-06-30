@@ -24,15 +24,15 @@ namespace BatalhaNaval
             JogadorComputador c = new JogadorComputador(10, 10);
             h.ImprimirTabuleiroJogador();
             Embarcacao[] barcos = new Embarcacao[9];
-            barcos[0] = new Embarcacao("Submarino-1", 1);
-            barcos[1] = new Embarcacao("Submarino-2", 1);
-            barcos[2] = new Embarcacao("Submarino-3", 1);
-            barcos[3] = new Embarcacao("Hidroavião-1", 2);
-            barcos[4] = new Embarcacao("Hidroavião-2", 2);
-            barcos[5] = new Embarcacao("Cruzador-1", 3);
-            barcos[6] = new Embarcacao("Cruzador-2", 3);
-            barcos[7] = new Embarcacao("Encouraçado", 4);
-            barcos[8] = new Embarcacao("Porta-aviões", 5);
+            barcos[0] = new Embarcacao("Porta-aviões", 5);
+            barcos[1] = new Embarcacao("Encouraçado", 4);
+            barcos[2] = new Embarcacao("Cruzador-1", 3);
+            barcos[3] = new Embarcacao("Cruzador-2", 3);
+            barcos[4] = new Embarcacao("Hidroavião-1", 2);
+            barcos[5] = new Embarcacao("Hidroavião-2", 2)
+            barcos[6] = new Embarcacao("Submarino-1", 1)
+            barcos[7] = new Embarcacao("Submarino-2", 1);
+            barcos[8] = new Embarcacao("Submarino-3", 1);
             
             for (int i = 0; i < barcos.Length; i++)
             {
@@ -50,15 +50,13 @@ namespace BatalhaNaval
                 }
             }
 
-
-            int lin = 0;
-            string linhaLida;
-            string[] lerlinhas;
-            bool adicionado = false;
             try
             {
-                
-            
+                int lin = 0;
+                string linhaLida;
+                string[] lerlinhas;
+                bool adicionado = false;
+
                 StreamReader arq = new StreamReader("frotaComputador.txt", Encoding.UTF8);
                 linhaLida = arq.ReadLine();
             
@@ -68,13 +66,8 @@ namespace BatalhaNaval
                     int posLinha = int.Parse(lerlinhas[1]);
                     int posColuna = int.Parse(lerlinhas[2]);
                     Posicao p = new Posicao(posLinha, posColuna);
-                    Embarcacao[] bar = new Embarcacao[9];
-                    string barco = lerlinhas[0];
-                    bar[lin] = new Embarcacao(barco, 1);
-                    Console.WriteLine(lerlinhas[0]);
-                    adicionado = c.AdicionarEmbarcacao();
-                    
-                    linhaLida = arq.ReadLine(bar[],p);
+                    adicionado = c.AdicionarEmbarcacao(barcos[lin], p);
+                    linhaLida = arq.ReadLine();
                     lin++;
                 }
                 arq.Close();
@@ -83,12 +76,7 @@ namespace BatalhaNaval
             {
                 Console.WriteLine("Erro: " + ex.Message);
             }
-            
-            
-            //mostrar o tabuleiro do computador//
-            //                                 //
-            //                                 //
-            /////////////////////////////////////
+            c.ImprimirTabuleiroAdversario();
             bool ganhou = false;
             int venceu;
             for(int i= 0 ; i < 100 || ganhou == false ; i++)
@@ -160,7 +148,7 @@ namespace BatalhaNaval
             Console.WriteLine(campeao);
             try
             {
-               StreamWriter arq3 = new StreamWriter("C:\\Arq3.txt", true, Encoding.UTF8);
+               StreamWriter arq3 = new StreamWriter("JogadasVencedor.txt", true, Encoding.UTF8);
                if(venceu == 1)
                {
                  for (int x = 0; x <= h.NumTirosDados ; x++)
@@ -180,8 +168,6 @@ namespace BatalhaNaval
             { 
               Console.WriteLine("Exception: " + e.Message);
             }
-        
-
             Console.ReadLine();
         }
     }
