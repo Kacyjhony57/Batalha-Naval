@@ -165,14 +165,14 @@ namespace BatalhaNaval
                {
                  for (int x = 0; x <= h.NumTirosDados ; x++)
                  {
-                   arq3.WriteLine($"Tiro ${x}: ${h.posTirosDados[x].Linha},${h.posTirosDados[x].Coluna}");
+                   arq3.WriteLine($"Tiro ${x}: (${h.posTirosDados[x].Linha},${h.posTirosDados[x].Coluna})");
                  }
                }
                else
                {
                    for (int x = 0; x <= c.NumTirosDados ; x++)
                  {
-                   arq3.WriteLine($"Tiro ${x}: ${c.posTirosDados[x].Linha},${c.posTirosDados[x].Coluna}");
+                   arq3.WriteLine($"Tiro ${x}: (${c.posTirosDados[x].Linha},${c.posTirosDados[x].Coluna})");
                  }
                }
             }
