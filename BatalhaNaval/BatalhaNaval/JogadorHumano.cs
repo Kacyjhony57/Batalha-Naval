@@ -34,7 +34,7 @@ namespace BatalhaNaval
             posTirosDados = new Posicao[100];
             pontuacao = 0;
             numTirosDados = 0;
-            GerarNickname(nome);
+            nick = GerarNickname(nome);
         }
 
         //-------- METODOS ------------
