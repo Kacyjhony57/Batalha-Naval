@@ -84,6 +84,7 @@ namespace BatalhaNaval
 
                 if (valida = true && (posTirosDados[i] == null))
                 {
+                    numTirosDados++;
                     posTirosDados[i] = tiro;
                     return posTirosDados;
                 }
