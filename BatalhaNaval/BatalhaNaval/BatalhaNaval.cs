@@ -10,42 +10,6 @@ namespace BatalhaNaval
 
     internal class BatalhaNaval
     {
-        static void TabuleiroComputador()
-        {
-            int i = 0;
-            string linha;
-            string[] lerlinhas;
-        
-            try
-            {
-                JogadorComputador c = new JogadorComputador(10, 10);
-        
-                StreamReader arq = new StreamReader("frotaComputador.txt", Encoding.UTF8);
-                linha = arq.ReadLine();
-        
-                while (linha != null)
-                {
-                    lerlinhas = linha.Split(';');
-                    int posLinha = int.Parse(lerlinhas[1]);
-                    int posColuna = int.Parse(lerlinhas[2]);
-                    Posicao p = new Posicao(posLinha, posColuna);
-                    Embarcacao[] barcos = new Embarcacao[9];
-                    string barco = lerlinhas[0];
-                    barcos[i] = new Embarcacao(barco , 1);
-                    Console.WriteLine(lerlinhas[0]);
-                    i++;
-                    linha = arq.ReadLine();
-                }
-                arq.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro: " + ex.Message);
-            }
-        
-        
-        
-        }
 
 
         static void Main(string[] args)
@@ -85,6 +49,42 @@ namespace BatalhaNaval
                     done = h.AdicionarEmbarcacao(barcos[i],jogada);
                 }
             }
+
+
+            int lin = 0;
+            string linhaLida;
+            string[] lerlinhas;
+            bool adicionado = false;
+            try
+            {
+                
+            
+                StreamReader arq = new StreamReader("frotaComputador.txt", Encoding.UTF8);
+                linhaLida = arq.ReadLine();
+            
+                while (linhaLida != null)
+                {
+                    lerlinhas = linhaLida.Split(';');
+                    int posLinha = int.Parse(lerlinhas[1]);
+                    int posColuna = int.Parse(lerlinhas[2]);
+                    Posicao p = new Posicao(posLinha, posColuna);
+                    Embarcacao[] bar = new Embarcacao[9];
+                    string barco = lerlinhas[0];
+                    bar[lin] = new Embarcacao(barco, 1);
+                    Console.WriteLine(lerlinhas[0]);
+                    adicionado = c.AdicionarEmbarcacao();
+                    
+                    linhaLida = arq.ReadLine(bar[],p);
+                    lin++;
+                }
+                arq.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+            
+            
             //mostrar o tabuleiro do computador//
             //                                 //
             //                                 //
