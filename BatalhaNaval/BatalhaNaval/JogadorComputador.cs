@@ -130,7 +130,7 @@ namespace BatalhaNaval
             {
                 tabuleiro[posicao.Linha, posicao.Coluna + i] = simbolo;
             }
-
+            Console.WriteLine("Embarcação posicionada com sucesso");
             return true;
         }
 
