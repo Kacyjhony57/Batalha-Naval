@@ -149,7 +149,18 @@ namespace BatalhaNaval
             }
             Console.WriteLine("\t\nFim de jogo!");
             Console.WriteLine(campeao);
-            
+            try
+            {
+               StreamWriter arq = new StreamWriter("C:\\Arq3.txt", true, Encoding.UTF8);
+               for (int x = 0; x < ; x++)
+               {
+                   arq.Write(x);
+               }
+            }
+            catch(Exception e)
+            { 
+              Console.WriteLine("Exception: " + e.Message);
+            }
         
 
             Console.ReadLine();
