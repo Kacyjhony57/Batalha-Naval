@@ -8,38 +8,40 @@ using System.IO;
 namespace BatalhaNaval
 {
 
-    static void TabuleiroComputador()
-    {
-        string linha;
-        string[] lerlinhas;
-
-        try
-        {
-            
-            StreamReader arq = new StreamReader("frotaComputador.txt", Encoding.UTF8);
-            linha = arq.ReadLine();
-
-            while (linha != null)
-            {
-                lerlinhas = linha.Split(';');
-                
-
-                linha = arq.ReadLine();
-            }
-            arq.Close();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Erro: " + ex.Message);
-        }
-
-
-
-    }
-
-
     internal class BatalhaNaval
     {
+        static void TabuleiroComputador()
+        {
+            string linha;
+            string[] lerlinhas;
+
+            try
+            {
+                JogadorComputador c = new JogadorComputador(10, 10);
+
+                StreamReader arq = new StreamReader("frotaComputador.txt", Encoding.UTF8);
+                linha = arq.ReadLine();
+
+                while (linha != null)
+                {
+                    lerlinhas = linha.Split(';');
+
+
+
+                    linha = arq.ReadLine();
+                }
+                arq.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+
+
+
+        }
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("\tJOGO BATALHA NAVAL");
@@ -76,10 +78,10 @@ namespace BatalhaNaval
                     done = h.AdicionarEmbarcacao(barcos[i],jogada);
                 }
             }
-            //mostrar o tabuleiro do computador
-            //
-            //
-            //
+            //mostrar o tabuleiro do computador//
+            //                                 //
+            //                                 //
+            /////////////////////////////////////
             bool ganhou = false;
             for(int i= 0 ; i < 100 || ganhou == false ; i++)
             {
@@ -89,7 +91,8 @@ namespace BatalhaNaval
                 bool acerto = true; 
                 while(acerto)
                 {
-                    Posicao[] tiro = h.EscolherAtaque();
+                    Posicao[] chanceH = h.EscolherAtaque();
+                    Posicao tiro = chanceH[h.NumTirosDados];;
                     acerto = c.ReceberAtaque(tiro);
                     if(acerto == true)
                     {
@@ -105,7 +108,8 @@ namespace BatalhaNaval
                 acerto = true;
                 while(acerto)
                 {
-                    Posicao tiro = c.EscolherAtaque();
+                    Posicao[] chanceC = c.EscolherAtaque();
+                    Posicao tiro = chanceC[c.NumTirosDados];
                     acerto = h.ReceberAtaque(tiro);
                     if(acerto == true)
                     {
