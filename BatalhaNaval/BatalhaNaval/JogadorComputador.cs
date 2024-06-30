@@ -51,13 +51,8 @@ namespace BatalhaNaval
             
                 for (int i = 0; i < numTirosDados; i++)
                 {
-            
                     if (posTirosDados[i].Linha == linha && posTirosDados[i].Coluna == coluna)
-                    {
-                        
-                        valida = false;
-                    }
-            
+                     valida = false;
                 }
                 
             
