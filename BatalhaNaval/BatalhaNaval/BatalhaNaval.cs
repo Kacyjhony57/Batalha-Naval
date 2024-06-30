@@ -50,6 +50,7 @@ namespace BatalhaNaval
             nomeJ = Console.ReadLine();
             JogadorHumano h = new JogadorHumano(10, 10, nomeJ);
             string nick = h.GerarNickname(nomeJ);
+            Console.WriteLine($"Seu nickname é ${nick}.")
             JogadorComputador c = new JogadorComputador(10, 10);
             h.ImprimirTabuleiroJogador();
             Embarcacao[] barcos = new Embarcacao[9];
@@ -89,13 +90,18 @@ namespace BatalhaNaval
                 int pontoH = 0;
                 string campeao;
                 bool acerto = true; 
+                Console.WriteLine("Vez do "+ nick);
                 while(acerto)
                 {
+                    c.ImprimirTabuleiroAdversario();
                     Posicao[] chanceH = h.EscolherAtaque();
                     Posicao tiro = chanceH[h.NumTirosDados];;
                     acerto = c.ReceberAtaque(tiro);
                     if(acerto == true)
                     {
+                        c.tabuleiro[tiro.Linha,tiro.Coluna]='T';
+                        Console.WriteLine("Tiro acertou uma embarcação!");
+                        c.ImprimirTabuleiroAdversario();
                         pontoH++;
                         if(pontoH == 22)
                         {
@@ -103,36 +109,48 @@ namespace BatalhaNaval
                         ganhou = true;
                         }
                     }
+                    else
+                    {
+                        c.tabuleiro[tiro.Linha,tiro.Coluna]='X';
+                        Console.WriteLine("Tiro acertou a água!");
+                        c.ImprimirTabuleiroAdversario();
+                        acerto = false;
+                    }
 
                 }
                 acerto = true;
+                Console.WriteLine("Vez do Computador!");
                 while(acerto)
                 {
+                    h.ImprimirTabuleiroAdversario();
                     Posicao[] chanceC = c.EscolherAtaque();
                     Posicao tiro = chanceC[c.NumTirosDados];
                     acerto = h.ReceberAtaque(tiro);
                     if(acerto == true)
                     {
+                        h.tabuleiro[tiro.Linha,tiro.Coluna]='T';
+                        Console.WriteLine("Tiro acertou uma embarcação!");
+                        h.ImprimirTabuleiroAdversario();
                         pontoC++;
                         if(pontoC == 22)
                         {
                         campeao = "Computador Ganhou!";
                         ganhou = true;
                         }
+                        else
+                        {
+                        h.tabuleiro[tiro.Linha,tiro.Coluna]='X';
+                        Console.WriteLine("Tiro acertou a água!");
+                        h.ImprimirTabuleiroAdversario();
+                        acerto = false;
+                        }
                     }
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
+            Console.WriteLine("\t\nFim de jogo!");
+            Console.WriteLine(campeao);
+            
+        
 
             Console.ReadLine();
         }
