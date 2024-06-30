@@ -8,9 +8,6 @@ namespace BatalhaNaval
 {
     internal class JogadorHumano
     {
-
-
-
         private char[,] tabuleiro;
         private int pontuacao;
         private int numTirosDados;
@@ -34,7 +31,7 @@ namespace BatalhaNaval
             posTirosDados = new Posicao[100];
             pontuacao = 0;
             numTirosDados = 0;
-            nick = GerarNickname(nome);
+            GerarNickname(nome);
         }
 
         //-------- METODOS ------------
@@ -93,7 +90,7 @@ namespace BatalhaNaval
                 else
                     valida = false;
 
-                Console.WriteLine("Posição de tiro ja utilizda!");
+                Console.WriteLine("\nPosição de tiro ja utilizda!");
                 Console.WriteLine("Informe a linha do tiro: ");
                 linha = int.Parse(Console.ReadLine());
                 Console.WriteLine("Informe a coluna do tiro: ");
@@ -137,8 +134,9 @@ namespace BatalhaNaval
 
         public bool AdicionarEmbarcacao(Embarcacao embarcacao, Posicao posicao)
         {
-            if (posicao.Coluna + embarcacao.Tamanho > tabuleiro.GetLength(1))
+            if (posicao.Linha + embarcacao.Tamanho > tabuleiro.GetLength(0))
             {
+                Console.WriteLine("Posição excede tabuleiro!");
                 return false;
             }
 
@@ -146,6 +144,7 @@ namespace BatalhaNaval
             {
                 if (tabuleiro[posicao.Linha, posicao.Coluna + i] != 'A')
                 {
+                    Console.WriteLine("Posição com embarcação");
                     return false;
                 }
             }
