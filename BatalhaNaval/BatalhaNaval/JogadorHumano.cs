@@ -26,7 +26,6 @@ namespace BatalhaNaval
                 {
                     tabuleiro[i, j] = 'A';
                 }
-                Console.WriteLine();
             }
             posTirosDados = new Posicao[100];
             pontuacao = 0;
