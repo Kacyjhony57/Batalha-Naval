@@ -90,6 +90,7 @@ namespace BatalhaNaval
             //                                 //
             /////////////////////////////////////
             bool ganhou = false;
+            int venceu;
             for(int i= 0 ; i < 100 || ganhou == false ; i++)
             {
                 int pontoC = 0;
@@ -111,6 +112,7 @@ namespace BatalhaNaval
                         pontoH++;
                         if(pontoH == 22)
                         {
+                        venceu = 1;
                         campeao = $"Parabéns! ${nick} venceu!";
                         ganhou = true;
                         }
@@ -140,6 +142,7 @@ namespace BatalhaNaval
                         pontoC++;
                         if(pontoC == 22)
                         {
+                        venceu = 2;
                         campeao = "Computador Ganhou!";
                         ganhou = true;
                         }
@@ -157,10 +160,20 @@ namespace BatalhaNaval
             Console.WriteLine(campeao);
             try
             {
-               StreamWriter arq = new StreamWriter("C:\\Arq3.txt", true, Encoding.UTF8);
-               for (int x = 0; x < ; x++)
+               StreamWriter arq3 = new StreamWriter("C:\\Arq3.txt", true, Encoding.UTF8);
+               if(venceu == 1)
                {
-                   arq.Write(x);
+                 for (int x = 0; x <= h.NumTirosDados ; x++)
+                 {
+                   arq3.WriteLine($"Tiro ${x}: ${h.posTirosDados[x].Linha},${h.posTirosDados[x].Coluna}");
+                 }
+               }
+               else
+               {
+                   for (int x = 0; x <= c.NumTirosDados ; x++)
+                 {
+                   arq3.WriteLine($"Tiro ${x}: ${c.posTirosDados[x].Linha},${c.posTirosDados[x].Coluna}");
+                 }
                }
             }
             catch(Exception e)
