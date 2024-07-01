@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BatalhaNaval
 {
-    internal class Embarcacao
+   internal class Embarcacao
     {
         private string nome;
         private int tamanho;
@@ -32,6 +32,12 @@ namespace BatalhaNaval
             get { return tamanho; }
             set { tamanho = value; }
         }
+
+
+
+
+
+    }
 
 
 
